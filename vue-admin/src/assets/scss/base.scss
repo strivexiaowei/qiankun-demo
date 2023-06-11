@@ -1,0 +1,26 @@
+
+
+// @import 'vxe-table/styles/index.scss';
+
+@import 'vxe-table/styles/variable.scss';
+:root {
+    --el-color-primary: #3ED072;
+}
+// 修改样式变量
+// $vxe-font-size: 14px;
+// $vxe-font-color: #ff4f02;
+$vxe-primary-color: #3ED072B3;
+// $vxe-table-font-color: $vxe-font-color;
+// $vxe-table-border-color: #ff4f02;
+// $vxe-table-border-radius: 4px;
+$vxe-font-size: 16px;
+$vxe-table-header-background-color: #3ED072B3;
+$vxe-table-header-font-color: #fff ;
+$vxe-primary-color: #3ED072;
+$vxe-table-row-striped-background-color: #F3FAF5;
+// ...
+
+@import 'vxe-table/styles/modules.scss';
+.vxe-table .vxe-sort--asc-btn, .vxe-table .vxe-sort--desc-btn {
+    color: #fff;
+}

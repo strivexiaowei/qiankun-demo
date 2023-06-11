@@ -1,0 +1,48 @@
+{
+    "name": "vue-admin",
+    "private": true,
+    "version": "0.0.0",
+    "scripts": {
+        "dev": "vite --host",
+        "dev:trial": "vite serve --mode trial --host",
+        "dev:pro": "vite serve --mode production --host",
+        "build": "vite build",
+        "trial": "vite build --mode trial",
+        "build:pro": "vite build --mode production",
+        "preview": "vite preview"
+    },
+    "dependencies": {
+        "ant-design-vue": "3.0.0-alpha.11",
+        "axios": "^0.26.1",
+        "echarts": "^5.4.1",
+        "element-plus": "^2.1.8",
+        "eslint": "^8.12.0",
+        "eslint-plugin-vue": "^8.5.0",
+        "less": "^4.1.2",
+        "moment": "^2.29.1",
+        "nprogress": "^0.2.0",
+        "sass": "^1.49.11",
+        "vue": "^3.2.25",
+        "vue-router": "^4.0.13",
+        "vuex": "^4.0.2",
+        "vxe-table": "^4.2.2-beta.1",
+        "xe-utils": "^3.5.4"
+    },
+    "devDependencies": {
+        "@types/node": "^17.0.23",
+        "@types/nprogress": "^0.2.0",
+        "@vitejs/plugin-vue": "^2.2.0",
+        "consola": "^2.15.3",
+        "less-loader": "^7.3.0",
+        "node-sass": "^4.14.1",
+        "sass-loader": "^8.0.2",
+        "typescript": "^4.5.4",
+        "vite": "^2.8.0",
+        "vite-plugin-style-import": "^1.4.1",
+        "vite-plugin-vue-setup-extend": "^0.4.0",
+        "vue-tsc": "^0.29.8"
+    },
+    "resolutions": {
+        "console": "consola"
+    }
+}

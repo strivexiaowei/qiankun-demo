@@ -1,0 +1,1 @@
+export const UPLOAD_URL: string = 'https://anxzfile.ynyplt.com'
