@@ -1,7 +1,7 @@
 import { RouteRecordRaw } from "vue-router";
 import Home from "../views/Home.vue";
-import Portal from "../views/Portal.vue";
-
+import About from "../views/About.vue";
+import User from "../views/User.vue";
 export default <RouteRecordRaw[]>[
     {
         path: "/",
@@ -16,15 +16,27 @@ export default <RouteRecordRaw[]>[
         component: Home
     },
     {
-        path: "/app-vue",
+        path: "/about",
         meta: {
-            title: "app-vue",
+            title: "About",
             transition: "down",
             requiresAuth: true, // 要求授权
             keepAlive: true,
             show: false,
             icon: "\ue63d",
         },
-        component: Portal
+        component: About
+    },
+    {
+        path: "/user",
+        meta: {
+            title: "User",
+            transition: "down",
+            requiresAuth: true, // 要求授权
+            keepAlive: true,
+            show: false,
+            icon: "\ue63d",
+        },
+        component: User
     },
 ];

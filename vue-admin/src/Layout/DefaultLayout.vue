@@ -4,13 +4,18 @@
       <el-header style="background-color: #545c64;">Header</el-header>
       <el-container>
         <el-aside width="200px" style="background-color: #545c64;">
-            <router-link to="/"  style="display: block;cursor: pointer; padding: 10px;color: #fff;">首页</router-link>
-            <router-link to="/app-vue"  style="display: block;cursor: pointer; padding: 10px;color: #fff;">vue-app</router-link>
-            <router-link to="/app-react"  style="display: block;cursor: pointer; padding: 10px;color: #fff;">react-app</router-link>
-            <router-link to="/app-angualr"  style="display: block;cursor: pointer; padding: 10px;color: #fff;">angular-app</router-link>
-            <router-link to="/app-html"  style="display: block;cursor: pointer; padding: 10px;color: #fff;">html-app</router-link>
+          <router-link to="/" style="display: block;cursor: pointer; padding: 10px;color: #fff;">首页</router-link>
+          <router-link to="/app-vue"
+            style="display: block;cursor: pointer; padding: 10px;color: #fff;">vue-app</router-link>
+          <router-link to="/app-react"
+            style="display: block;cursor: pointer; padding: 10px;color: #fff;">react-app</router-link>
+          <router-link to="/app-angualr"
+            style="display: block;cursor: pointer; padding: 10px;color: #fff;">angular-app</router-link>
+          <router-link to="/app-html"
+            style="display: block;cursor: pointer; padding: 10px;color: #fff;">html-app</router-link>
         </el-aside>
-        <el-main> <router-view v-slot="{ Component }">
+        <el-main>
+          <router-view v-slot="{ Component }">
             <keep-alive :include="includeList">
               <component :is="Component" />
             </keep-alive>

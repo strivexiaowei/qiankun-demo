@@ -25,8 +25,18 @@ import 'xe-utils'
 // import 'vxe-table/lib/style.css'
 import './assets/scss/base.scss';
 import VXETable from 'vxe-table';
+import { registerMicroApps, start } from 'qiankun';
 
 const app = createApp(App)
 // useTable(app)
 app.use(Antd).use(ElementPlus).use(VXETable).use(router).use(store)
 app.mount('#app')
+
+registerMicroApps([
+    {
+      name: 'app-vue',
+      entry: '//localhost:3001',
+      container: '#view-main',
+      activeRule: '/app-vue',
+    }
+]);

@@ -1,5 +1,5 @@
 {
-    "name": "vue-admin",
+    "name": "vue-app",
     "private": true,
     "version": "0.0.0",
     "scripts": {
@@ -21,8 +21,8 @@
         "less": "^4.1.2",
         "moment": "^2.29.1",
         "nprogress": "^0.2.0",
-        "qiankun": "^2.10.8",
         "sass": "^1.49.11",
+        "vite-plugin-qiankun": "^1.0.15",
         "vue": "^3.2.25",
         "vue-router": "^4.0.13",
         "vuex": "^4.0.2",

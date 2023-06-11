@@ -1,6 +1,8 @@
 <template>
-  <div class="page">
-    这是主应用首页
+  <div>
+    <router-link to="/about">关于</router-link>
+    <router-link to="/user">个人中心</router-link>
+    这是vue子应用
   </div>
 </template>
 <script lang="ts" setup>
@@ -10,6 +12,6 @@ import type { MenuProps } from "ant-design-vue";
 import { useStore } from "vuex";
 </script>
 
-<style lang="less">
+<style lang="scss">
 
 </style>

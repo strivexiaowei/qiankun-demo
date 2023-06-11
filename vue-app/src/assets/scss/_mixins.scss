@@ -1,0 +1,66 @@
+@mixin base-shadow {
+    box-shadow: 0 1rpx 0 0 rgba(115, 183, 252, 0.34),
+    0 9rpx 27rpx 0 rgba(175, 202, 229, 0.22);
+}
+
+// Clearfix
+@mixin clearfix() {
+    &:before,
+    &:after {
+        content: " "; // 1
+        display: table; // 2
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+// Box sizing
+@mixin box-sizing($boxmodel) {
+    -webkit-box-sizing: $boxmodel;
+    -moz-box-sizing: $boxmodel;
+    box-sizing: $boxmodel;
+}
+
+// Text overflow
+@mixin text-overflow() {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+@mixin text-overflow-three {
+    display: -webkit-box;
+    overflow: hidden;
+    white-space: normal !important;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical
+}
+
+@mixin text-overflow-2 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+// Text-justify
+@mixin text-justify() {
+    text-align: justify;
+    text-justify: inter-ideograph; //IE支持属性
+}
+
+@mixin right-arrow($color) {
+    content: " ";
+    display: inline-block;
+    width: 10rpx;
+    height: 10rpx;
+    border: 1px solid $color;
+    border-bottom: 0;
+    border-left: 0;
+    pointer-events: none;
+    transform: rotate(45deg);
+}
