@@ -15,11 +15,17 @@
             style="display: block;cursor: pointer; padding: 10px;color: #fff;">html-app</router-link>
         </el-aside>
         <el-main>
-          <router-view v-slot="{ Component }">
-            <keep-alive :include="includeList">
-              <component :is="Component" />
-            </keep-alive>
-          </router-view></el-main>
+          <template v-if="currentRoute.meta.isAdmin">
+            <router-view v-slot="{ Component }">
+              <keep-alive :include="includeList">
+                <component :is="Component" />
+              </keep-alive>
+            </router-view>
+          </template>
+          <template v-else>
+            <div id="view-main"></div>
+          </template>
+        </el-main>
       </el-container>
     </el-container>
   </div>
@@ -33,14 +39,24 @@
 <script setup lang="ts">
 import { watch, } from '@vue/runtime-core'
 import { useRoute, useRouter } from "vue-router";
+
 import { ref } from 'vue';
+import { onMounted } from 'vue';
+import { start } from 'qiankun'
 import {
   Document,
   Menu as IconMenu,
   Location,
   Setting,
 } from '@element-plus/icons-vue'
+const { currentRoute } = useRouter()
 const includeList = ref<Array<string>>([])
 
+onMounted(() => {
+  if (!(window as any).qiankunStarted) {
+    (window as any).qiankunStarted = true
+    start({ sandbox: { experimentalStyleIsolation: true, singular: false } });
+  }
+})
 
 </script>

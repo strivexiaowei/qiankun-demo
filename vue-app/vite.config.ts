@@ -12,6 +12,8 @@ import vue from '@vitejs/plugin-vue'
 import { resolve } from 'path'
 import styleImport from 'vite-plugin-style-import'
 import VueSetupExtend from 'vite-plugin-vue-setup-extend'
+import qiankun from 'vite-plugin-qiankun'
+const packName = require('./package').name  // 必须要指定当前子应用命名
 // https://vitejs.dev/config/
 export default ({ command, mode }: ConfigEnv): UserConfigExport => {
     const root = process.cwd();
@@ -20,7 +22,7 @@ export default ({ command, mode }: ConfigEnv): UserConfigExport => {
     return {
         plugins: [
             vue(),
-        
+
             VueSetupExtend(),
             styleImport({
                 libs: [
@@ -30,13 +32,21 @@ export default ({ command, mode }: ConfigEnv): UserConfigExport => {
                         resolveStyle: (name) => `vxe-table/es/${name}/style.css`
                     }
                 ]
-            })],
+            }),
+            qiankun(`${packName}`, {
+                useDevMode: true
+            }),
+        ],
+        server: {
+            headers: {
+                'Access-Control-Allow-Origin': '*', // 主应用获取子应用时跨域响应头
+            }
+        },
         resolve: {
             alias: {
                 '@': resolve(__dirname, "src")
             }
         },
-        base: env.VITE_PUBLIC_PATH,
         // server: {
         //     proxy: {
         //         '/dev': {

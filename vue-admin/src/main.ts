@@ -33,10 +33,10 @@ app.use(Antd).use(ElementPlus).use(VXETable).use(router).use(store)
 app.mount('#app')
 
 registerMicroApps([
-    {
-      name: 'app-vue',
-      entry: '//localhost:3001',
-      container: '#view-main',
-      activeRule: '/app-vue',
-    }
+  {
+    name: 'vue-app',
+    entry: '//localhost:3001/',
+    container: '#view-main',
+    activeRule: 'app-vue'
+  }
 ]);

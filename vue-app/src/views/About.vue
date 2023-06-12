@@ -1,6 +1,7 @@
 <template>
     <div>
         这是vue子应用About
+        <img src="images/waiting.png" alt="">
     </div>
 </template>
 <script lang="ts" setup>

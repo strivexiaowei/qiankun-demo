@@ -10,6 +10,7 @@ export default <RouteRecordRaw[]>[
             transition: "down",
             requiresAuth: true, // 要求授权
             keepAlive: true,
+            isAdmin: true,
             show: false,
             icon: "\ue63d",
         },
@@ -19,6 +20,7 @@ export default <RouteRecordRaw[]>[
         path: "/app-vue",
         meta: {
             title: "app-vue",
+            isAdmin: false,
             transition: "down",
             requiresAuth: true, // 要求授权
             keepAlive: true,

@@ -12,7 +12,7 @@
 // main.ts
 import { createApp } from 'vue'
 import App from './App.vue'
-import { router } from '@/router/index'
+import router from '@/router/index'
 import store from '@/store/index'
 import '@/styles/antd-theme/index.less'
 import '@/assets/scss/common.scss'
@@ -20,40 +20,41 @@ import Antd from 'ant-design-vue';
 
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
-
 import 'xe-utils'
 // import 'vxe-table/lib/style.css'
 import './assets/scss/base.scss';
 import VXETable from 'vxe-table';
 import { renderWithQiankun, qiankunWindow } from 'vite-plugin-qiankun/dist/helper'
 
-let app: any = null
-// 独立运行时
-if(!qiankunWindow.__POWERED_BY_QIANKUN__) {
-  app = createApp(App)
-  app.use(router('')).use(store) // router('')，独立运行，路由前缀为空
-  app.use(ElementPlus)
-  app.mount('#app')
-} else {
-  // 作为微应用运行
-  renderWithQiankun({ // 调用renderWithQiankun
-    mount(props) {
-      app = createApp(App)
-      app
-      	.use(router(props._parent_base))// 路由前缀添加router(props._parent_base)，_parent_base是从主应用中传过来的
-      	.use(store)
-      app.use(ElementPlus)
-      app.mount(props.container ? props.container.querySelector('#app') : '#app')
-    },
-    bootstrap() {
-      console.log('-- bootstrap --')
-    },
-    update() {
-      console.log('-- update --')
-    },
-    unmount() {
-      console.log('-- unmount --', app)
-      app?.unmount()
-    }
-  })
+
+let instance: any = null
+function render(props: any = {}) {
+  const { container } = props
+  instance = createApp(App)
+  instance.use(router)
+  // 全局组件祖册
+ 
+  instance?.mount(container ? container.querySelector('#app') : '#app')
+  console.log('开始加载相关内容')
+}
+renderWithQiankun({
+  mount(props: any) {
+    render(props)
+  },
+  bootstrap() {
+    console.log('%c', 'color:green;', ' ChildOne bootstrap')
+  },
+  update() {
+    console.log('%c', 'color:green;', ' ChildOne update')
+  },
+  unmount(props: any) {
+    console.log('unmount', props)
+    instance.unmount()
+    instance._container.innerHTML = ''
+    instance = null
+  }
+})
+if (!qiankunWindow.__POWERED_BY_QIANKUN__) {
+  console.log('并不是qiankun渲染')
+  render()
 }
