@@ -1,6 +1,6 @@
 <template>
   <div>
-    <router-link to="/about">关于</router-link>
+    <router-link to="/about">关于</router-link> | 
     <router-link to="/user">个人中心</router-link>
     这是vue子应用
   </div>
