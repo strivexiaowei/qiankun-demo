@@ -22,7 +22,6 @@ export default ({ command, mode }: ConfigEnv): UserConfigExport => {
     return {
         plugins: [
             vue(),
-
             VueSetupExtend(),
             styleImport({
                 libs: [
@@ -33,7 +32,7 @@ export default ({ command, mode }: ConfigEnv): UserConfigExport => {
                     }
                 ]
             }),
-            qiankun(`${packName}`, {
+            qiankun(`app-vue`, {
                 useDevMode: true
             }),
         ],

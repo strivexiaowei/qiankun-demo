@@ -32,6 +32,7 @@ function render(props: any = {}) {
   const { container } = props
   instance = createApp(App)
   instance.use(router)
+  instance.use(ElementPlus)
   // 全局组件祖册
  
   instance?.mount(container ? container.querySelector('#app') : '#app')

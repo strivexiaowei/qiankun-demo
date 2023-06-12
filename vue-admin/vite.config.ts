@@ -20,7 +20,7 @@ export default ({ command, mode }: ConfigEnv): UserConfigExport => {
     return {
         plugins: [
             vue(),
-        
+
             VueSetupExtend(),
             styleImport({
                 libs: [
@@ -37,16 +37,20 @@ export default ({ command, mode }: ConfigEnv): UserConfigExport => {
             }
         },
         base: env.VITE_PUBLIC_PATH,
-        // server: {
-        //     proxy: {
-        //         '/dev': {
-        //             // http://192.168.65.196:8600
-        //           target: 'http://192.168.65.20:8600',   //代理接口
-        //           changeOrigin: true,
-        //           rewrite: (path) => path.replace(/^\/dev/, '')
-        //         }
-        //       }
-        // },
+        server: {
+            proxy: {
+                '/dev': {
+                    // http://192.168.65.196:8600
+                    target: 'http://192.168.65.20:8600',   //代理接口
+                    changeOrigin: true,
+                    rewrite: (path) => path.replace(/^\/dev/, '')
+                },
+                '/images-vue': {
+                    target: 'http://192.168.65.26:3001/',   //代理接口
+                    changeOrigin: true,
+                }
+            }
+        },
         css: {
             preprocessorOptions: {
                 less: {
